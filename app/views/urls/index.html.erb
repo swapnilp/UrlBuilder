@@ -28,7 +28,7 @@
 	  <%= url.url %>
 	</td>
 	<td>
-	  <a href="<%= URLHEADER%><%= url.short_url %>" target="_blank"><%= URLHEADER %><%= url.short_url %></a>
+	  <a href="/<%= url.short_url %>" target="_blank"><%= request.env['HTTP_HOST'] %>/<%= url.short_url %></a>
 	</td>
 	<td>
 	  <%= url.hits %>
