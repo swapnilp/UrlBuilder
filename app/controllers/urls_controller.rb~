@@ -1,0 +1,27 @@
+class UrlsController < ApplicationController
+
+  def index
+    @urls = Url.all.order("hits desc")
+  end
+
+  def new
+    @url = Url.new
+  end
+
+  def show
+    @url = Url.where(id: params[:id]).first
+  end
+  
+  def edit
+    @url = Url.where(id: params[:id]).first
+    
+  end
+
+  def update
+    @url = Url.where(id: params[:id]).first
+  end
+
+  def update_count
+    
+  end
+end

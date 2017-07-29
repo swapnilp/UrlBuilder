@@ -1,0 +1,40 @@
+<a href="<%= new_url_path%>" class="btn btn-primary">New Url</a>
+<div class="col-sm-12">
+  <h1>Urls</h1>
+  <table class="col-sm-12 table table-striped">
+    <thead>
+      <tr>
+	<td>
+	  Index
+	</td>
+	<td>
+	  Url
+	</td>
+	<td>
+	  Short Url
+	</td>
+	<td>
+	  Count
+	</td>
+      </tr>
+    </thead>
+    <tbody>
+      <%- @urls.each_with_index do |url, index| %>
+      <tr>
+	<td>
+	  <%= index %>
+	</td>
+	<td>
+	  <%= url.url %>
+	</td>
+	<td>
+	  <a href="<%= URLHEADER%><%= url.short_url %>" target="_blank"><%= URLHEADER %><%= url.short_url %></a>
+	</td>
+	<td>
+	  <%= url.hits %>
+	</td>
+      </tr>
+      <%- end %>
+    </tbody>
+  </table>
+</div>

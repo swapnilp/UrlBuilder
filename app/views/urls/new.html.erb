@@ -1,0 +1,27 @@
+<div class="wrapper row2">
+  <div id="container" class="clear"> 
+    <!-- ####################################################################################################### -->
+    <div id="content">
+      <h1>New Url</h1>
+      
+      <%= form_for @url, url: {action: "create"} do |f| %>
+      <% if @url.errors.any? %>
+      <ul>
+	<% @url.errors.full_messages.each do |msg| %>
+	<li><%= msg %></li>
+	<% end %>
+      </ul>
+      <% end %>
+      <p>
+	<strong class="one_quarter">Name</strong>
+	<%= f.text_field :url %>
+      </p>
+      <p>
+	<%= f.submit "Create",  class: "btn btn-primary"%>
+	<a href="/groups" class="btn btn-primary">Cancel</a>
+      </p>
+      <% end %>
+    </div>
+  </div>
+</div>
+
