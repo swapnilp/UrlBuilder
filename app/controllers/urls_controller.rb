@@ -40,12 +40,12 @@ class UrlsController < ApplicationController
       @url.increase_hit
       redirect_to "#{'http://' unless @url.url.include?('http://') || @url.url.include?('https://')}#{@url.url}"
     else
-      redirect_to urls_path
+      redirect_to urls_path, alert: "URL not present. Please create new URL" 
     end
   end
-
-private
-
+  
+  private
+  
   def url_params
     params.require(:url).permit(:url)
   end
