@@ -8,32 +8,18 @@ class UrlsController < ApplicationController
     @url = Url.new
   end
 
+  # If urls is already present then just initialize else create new record
   def create
     @url = Url.find_or_initialize_by(url_params)
     if @url.save
-      redirect_to urls_path
+      redirect_to urls_path, notice: "Url shortner is successfully created"
     else
       render :new
     end
   end
 
-  def show
-    @url = Url.where(id: params[:id]).first
-  end
-  
-  def edit
-    @url = Url.where(id: params[:id]).first
-    
-  end
-
-  def update
-    @url = Url.where(id: params[:id]).first
-  end
-
-  def update_count
-    
-  end
-
+  # Using params[:id] serach urls and redirect to that url 
+  # If params[:id] is not found then redirect to index with alert 
   def redirected
     @url = Url.where(short_url: params[:id]).first
     if @url.present?
